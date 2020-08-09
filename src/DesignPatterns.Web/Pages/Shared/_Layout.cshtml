@@ -12,7 +12,7 @@
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
 
-                <a class="navbar-brand" href="#">Navbar w/ text</a>
+                <a class="navbar-brand" href="#">DesignPatterns.Web</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -21,15 +21,17 @@
                         <li class="nav-item active">
                             <a class="nav-link" asp-page="Index">Home <span class="sr-only">(current)</span></a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Features</a>
-                        </li>
                     </ul>
                     @if(User.Identity.IsAuthenticated)
                     {
-                        <span class="navbar-text">
-                        Hello, @User.Identity.Name
-                        </span>
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Hello, @User.Identity.Name</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" asp-page="Logout">Logout</a>
+                            </li>
+                        </ul>
                     }
                 </div>
                 </nav>
