@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace DesignPatterns.Web.Pages
 {
-    public class LogoutModel : PageModel
+    public class SignOutModel : PageModel
     {
         public IActionResult OnGet()
         {
