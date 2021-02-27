@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -34,7 +35,7 @@ namespace DesignPatterns.Web
             .AddOpenIdConnect("oidc", options =>
             {
                 options.RequireHttpsMetadata = false;
-                options.Authority = "http://localhost:5002";
+                options.Authority = "http://localhost:50000";
 
                 options.ClientId = "webapp";
                 options.ClientSecret = "secret";
