@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -34,8 +35,7 @@ namespace DesignPatterns.Web
             .AddCookie("Cookies")
             .AddOpenIdConnect("oidc", options =>
             {
-                options.RequireHttpsMetadata = false;
-                options.Authority = "http://localhost:50000";
+                options.Authority = "https://localhost:50001";
 
                 options.ClientId = "webapp";
                 options.ClientSecret = "secret";
@@ -51,6 +51,11 @@ namespace DesignPatterns.Web
                 {
                     NameClaimType = "name",
                     // RoleClaimType = "role"
+                };
+                // Just Testing
+                options.BackchannelHttpHandler = new HttpClientHandler
+                {
+                    ServerCertificateCustomValidationCallback = HttpClientHandler.DangerousAcceptAnyServerCertificateValidator
                 };
             });
         }
